@@ -88,6 +88,8 @@ void RemoveCommentBlock(char String[])
 //Удаление блока в скобках ()
 void RemoveParentheses(char String[])
 {
+	do
+	{
 		//"Перемотка" строки до начала блока
 		for (; *String != '('; String++)
 			if (!(*String))	//Если встречен конец файла,
@@ -109,9 +111,12 @@ void RemoveParentheses(char String[])
 		{
 			String[j] = String[i + 1];
 			if (!String[j]) /*Если был скопирован терминальный символ*/
-				return RemoveParentheses(String);	//Осуществляется повторная проверка
+				break;
+				// return RemoveParentheses(String);	//Осуществляется повторная проверка
 			i++, j++;
 		} while (1);
+	}
+	while (1);
 }
 
 //Подсчёт максимальной последовательности пробелов в строке String
