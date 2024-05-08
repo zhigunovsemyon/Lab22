@@ -112,7 +112,6 @@ void RemoveParentheses(char String[])
 			String[j] = String[i + 1];
 			if (!String[j]) /*Если был скопирован терминальный символ*/
 				break;
-				// return RemoveParentheses(String);	//Осуществляется повторная проверка
 			i++, j++;
 		} while (1);
 	}
