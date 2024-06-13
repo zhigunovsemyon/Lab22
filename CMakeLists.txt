@@ -14,4 +14,5 @@ project ("Lab22" LANGUAGES C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED CMAKE_C_STANDARD)
 
+add_definitions("-Wall -Wextra -Wconversion -Wsign-conversion")
 add_executable (${PROJECT_NAME} "src/main.c") 

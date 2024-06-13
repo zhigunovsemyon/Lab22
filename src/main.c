@@ -119,7 +119,7 @@ void RemoveParentheses(char String[])
 }
 
 //Подсчёт максимальной последовательности пробелов в строке String
-uint8_t CountMaxSpace(char String[])
+uint32_t CountMaxSpace(char String[])
 {
 	uint32_t max = 0, count = 0;
 	for (uint32_t i = 0; String[i]; ++i)//Цикл перебирает строку, пока она не закончится
@@ -211,10 +211,10 @@ uint8_t Switcher(char String[])
 }
 
 //Подсчёт длинны файла, сравнение с максимальным
-uint32_t FileLen(FILE* f, uint32_t maxLen)
+uint64_t FileLen(FILE* f, uint32_t maxLen)
 {
 	fseek(f, SEEK_SET, SEEK_END);//Перемотка в конец
-	uint32_t len = ftell(f);	 //Чтение размера файла
+	uint64_t len = ftell(f);	 //Чтение размера файла
 	rewind(f);					 //Перемотка обратно в начало
 	return (len < maxLen) ? 	 //Если полученный размер больше максимального
 		len : maxLen;			 //передаётся максимальный
@@ -234,7 +234,7 @@ void GetAndReadFile(char String[])
 		return;
 	}
 	//Определение размера загружаемой строки между размером файла и максимальным
-	uint32_t len = FileLen(f, MAXLEN - 1);	
+	uint64_t len = FileLen(f, MAXLEN - 1);	
 	fread(String, sizeof(char), len, f);	//Чтение в буфер
 	String[len] = 0;						//Зануление конца
 	fclose(f);								//Закрытие файла

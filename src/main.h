@@ -18,7 +18,7 @@ enum Switches
 
 void GetAndReadFile(char String[]);
 uint8_t Switcher(char String[]);
-uint32_t FileLen(FILE* f, uint32_t maxLen);
-uint8_t CountMaxSpace(char String[]);
+uint64_t FileLen(FILE* f, uint32_t maxLen);
+uint32_t CountMaxSpace(char String[]);
 void RemoveParentheses(char String[]);
 void RemoveCommentBlock(char String[]);
